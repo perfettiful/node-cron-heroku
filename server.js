@@ -7,6 +7,13 @@ var mongoose = require("mongoose");
 var PORT = process.env.PORT || 3000;
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
 
+const cron = require('node-cron');
+
+var task = cron.schedule(' * * * * *', () => {
+	console.log('Printing this line every minute in the terminal');
+});
+
+
 // Initialize Express
 var app = express();
 
