@@ -2,6 +2,7 @@ var express = require("express");
 var expresshbs = require("express-handlebars");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var axios = require("axios");
 
 // Set up port and mongodb connection
 var PORT = process.env.PORT || 3000;
@@ -11,8 +12,17 @@ const cron = require('node-cron');
 
 var task = cron.schedule(' * * * * *', () => {
 
-  var dateTimeStamp = new Date(year, month, day, hours, minutes, seconds, milliseconds)
-	console.log('Printing current date-time ('+dateTimeStamp+') every minute in the terminal');
+  var dateTimeStamp = new Date().toLocaleString();
+  console.log('---Printing current date-time ('+dateTimeStamp+') every minute in the terminal---');
+  
+  // axios.get("https://www.youtube.com/trending").then(function (ytResponse) {
+
+  // console.log("----------Youtube Scrape---------------");
+  
+  // console.log(ytResponse);
+  // });
+
+
 });
 
 
