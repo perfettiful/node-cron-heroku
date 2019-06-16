@@ -10,7 +10,9 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleScraper
 const cron = require('node-cron');
 
 var task = cron.schedule(' * * * * *', () => {
-	console.log('Printing this line every minute in the terminal');
+
+  var dateTimeStamp = new Date(year, month, day, hours, minutes, seconds, milliseconds)
+	console.log('Printing current date-time ('+dateTimeStamp+') every minute in the terminal');
 });
 
 
